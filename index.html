@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Santhosh | UI/UX Designer</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            background: #050816;
+        }
+
+        body {
+            font-family: tau-uraiitalic;
+            color: white;
+            background: transparent;
+        }
+
+        /* Background Video */
+
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Video Dark Overlay */
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.72);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navbar */
+
+        header {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: #00aaff;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        /* Common Section */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+            font-family: rotten;
+        }
+
+        .heading span {
+            color: #00aaff;
+        }
+
+        /* Home */
+
+        .home {
+            min-height: 85vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .home-content h1 {
+            font-size: 48px;
+            margin: 15px 0;
+            font-family:sorean;
+        }
+
+        .home-content h1 span {
+            color: #00aaff;
+            font-family: rotten;
+        }
+
+        .home-content h2 {
+            margin-bottom: 20px;
+            font-family:sorean ;
+        }
+
+        .home-content p {
+            line-height: 1.8;
+            color: #ddd;
+            max-width: 550px;
+            font-family:consolas;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 320px;
+            object-fit: cover;
+
+            border-radius: 20px;
+            border: 3px solid #00aaff;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00aaff;
+            transform: translateY(-4px);
+        }
+
+        /* About */
+
+        .about-content {
+            background: rgba(10, 20, 40, 0.88);
+            padding: 30px;
+            border-radius: 15px;
+
+            line-height: 1.8;
+            text-align: center;
+            transition: 0.3s;
+            font-family: dubai;
+        }
+
+        .about-content:hover {
+            transform: translateY(-5px);
+            border: 1px solid #00aaff;
+        }
+
+        /* Skills and Designing Tools */
+
+        .skills-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .skill-box {
+            background: rgba(15, 25, 45, 0.90);
+            padding: 30px 20px;
+
+            border-radius: 12px;
+            text-align: center;
+
+            border: 1px solid rgba(0, 170, 255, 0.2);
+            transition: 0.3s;
+            font-family: sorean;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-8px);
+            border-color: #00aaff;
+
+            box-shadow:
+                0 5px 20px rgba(0, 170, 255, 0.2);
+        }
+
+        .skill-box h3 {
+            color: #00aaff;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .skill-box p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* Projects */
+
+        .projects-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .project-box {
+            background: rgba(15, 25, 45, 0.90);
+            padding: 20px;
+
+            border-radius: 12px;
+            text-align: center;
+
+            border: 1px solid rgba(0, 170, 255, 0.2);
+            transition: 0.3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-8px);
+            border-color: #00aaff;
+
+            box-shadow:
+                0 5px 20px rgba(0, 170, 255, 0.2);
+        }
+
+        .project-box img {
+            width: 100%;
+            height: 170px;
+
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-box h3 {
+            color: #00aaff;
+            margin-bottom: 12px;
+        }
+
+        .project-box p {
+            color: #ddd;
+            line-height: 1.6;
+            font-family: sorean;
+        }
+
+        /* Contact */
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+
+            background: rgba(10, 20, 40, 0.92);
+            padding: 30px;
+
+            border-radius: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 18px;
+
+            background: #111827;
+            border: 1px solid #334155;
+
+            border-radius: 7px;
+            color: white;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #00aaff;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 13px;
+
+            background: #007bff;
+            color: white;
+
+            border: none;
+            border-radius: 7px;
+
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #00aaff;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+
+            background: rgba(0, 0, 0, 0.90);
+            color: #ccc;
+        }
+
+        /* Responsive */
+
+        @media(max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .home-content h1 {
+                font-size: 35px;
+            }
+
+            .profile-img {
+                width: 220px;
+                height: 250px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Video -->
+
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="f66470c9de0ef7124fc8dff113460360.mp4" type="video/mp4">
+        Your browser does not support video.
+    </video>
+
+    <div class="video-overlay"></div>
+
+
+    <div class="page-content">
+
+        <!-- Navbar -->
+
+        <header>
+
+            <div class="logo">
+                My Portfolio
+            </div>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </header>
+
+
+        <!-- Home Section -->
+
+        <section class="home" id="home">
+
+            <div class="home-content">
+
+                <h2>Hello, I'm</h2>
+
+                <h1>
+                    <span>Santhosh</span>
+                </h1>
+
+                <h2>UI/UX Designer | Frontend Devoleper</h2>
+
+                <p>
+                    I am a passionate UI/UX Designer.
+                    I enjoy creating clean, modern and
+                    user-friendly website designs.
+                </p>
+
+                <a href="#contact" class="btn">
+                    Contact Me
+                </a>
+
+            </div>
+
+            <img
+                src="WhatsApp_Image_2026-10-11_at_6.22.24_PM-removebg-preview.png_c5d3b513_2K.jpg"
+                alt="My Profile"
+                class="profile-img"
+            >
+
+        </section>
+
+
+        <!-- About Section -->
+
+        <section id="about">
+
+            <h2 class="heading">
+                About <span>Me</span>
+            </h2>
+
+            <div class="about-content">
+
+                <p>
+                    I am an aspiring UI/UX Designer interested
+                    in creating attractive and user-friendly
+                    digital experiences. I have knowledge of
+                    designing tools and basic web technologies.
+                    My goal is to design simple, creative and
+                    meaningful user interfaces.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- My Skills -->
+
+        <section id="skills">
+
+            <h2 class="heading">
+                My <span>Skills</span>
+            </h2>
+
+            <div class="skills-container">
+
+                <div class="skill-box">
+                    <h3>HTML</h3>
+                    <p>Website Structure</p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>CSS</h3>
+                    <p>Website Styling</p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>JavaScript</h3>
+                    <p>Basic Website Interactions</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Designing Tools -->
+
+        <section id="designing-tools">
+
+            <h2 class="heading">
+                Designing <span>Tools</span>
+            </h2>
+
+            <div class="skills-container">
+
+                <div class="skill-box">
+                    <h3>Figma</h3>
+                    <p>UI Design & Prototyping</p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Adobe XD</h3>
+                    <p>UI/UX Design & Wireframing</p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Canva</h3>
+                    <p>Graphic Design & Posters</p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Photopea</h3>
+                    <p>Photo Editing & Image Design</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Projects -->
+
+        <section id="projects">
+
+            <h2 class="heading">
+                My <span>Projects</span>
+            </h2>
+
+            <div class="projects-container">
+
+                <div class="project-box">
+
+                    <img
+                        src="Screenshot_2026-11-13_165812.png_6c187f5d_2K.jpg"
+                        alt="Shopping App"
+                    >
+                    
+
+                    <h3>Shopping App</h3>
+
+                    <p>
+                        A modern shopping application UI
+                        with a simple and user-friendly design.
+                    </p>
+                    <a href="https://www.figma.com/design/HHGp4qQTfrxvxMWgmQRAzb/Untitled?node-id=327-46&t=PxMC33bPBjvz1poc-1" target="_blank"> View project</a>
+
+                </div>
+
+
+                <div class="project-box">
+
+                    <img
+                        src="Screenshot_2026-11-13_165910.png_4db6e543_2K.jpg"
+                        alt="Juice Website"
+                    >
+
+                    <h3>Juice Website</h3>
+
+                    <p>
+                        A creative juice website design
+                        with attractive product sections.
+                    </p>
+                    <a href="https://www.figma.com/design/HHGp4qQTfrxvxMWgmQRAzb/Untitled?node-id=37-14&t=PxMC33bPBjvz1poc-1" target="_blank"> View project</a>
+
+                </div>
+
+
+                <div class="project-box">
+
+                    <img
+                        src="Screenshot_2026-10-11_134553.png_13583540_2K.jpg"
+                        alt="Building Website"
+                    >
+
+                    <h3>Building Website</h3>
+
+                    <p>
+                        A professional building website
+                        with modern layouts and design.
+                    </p>
+                    <a href="https://santhosh-designer46.github.io/dharshini-buliders/" target="_blank"> View project</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Contact -->
+
+        <section id="contact">
+
+            <h2 class="heading">
+                Contact <span>Me</span>
+            </h2>
+
+            <form
+                class="contact-form"
+                onsubmit="sendMessage(event)"
+            >
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p>
+                © 2026 Santhosh | UI/UX Designer
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            let name =
+                document.getElementById("name").value;
+
+            alert(
+                "Hello " + name +
+                "! Your Message Sent Successfully."
+            );
+
+            document
+                .querySelector(".contact-form")
+                .reset();
+
+        }
+
+    </script>
+
+</body>
+</html>
